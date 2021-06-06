@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "jaba/nav.html" %}
+  <h2>Sign up for a free account</h2>
+  <p class="lead">Create an account below to connect to millions of Kenyans</p>
+  <a href="{% url 'seller_signup' %}" class="btn btn-student btn-lg" role="button">Create Seller Account</a>
+  
+{% endblock %}

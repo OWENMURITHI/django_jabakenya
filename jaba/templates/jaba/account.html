@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block content %}
+{% include "jaba/nav.html" %}
+
+<div class="container" style="background-color: #fff; 
+border-radius: 2px;
+font-size: large;
+margin: 60px auto;
+padding: 20px;
+-webkit-box-shadow: 3px 3px 5px 6px rgb(0, 0 , 0, 0.4);
+-moz-box-shadow: 3px 3px 5px 6px rgb(0, 0 , 0, 0.4);
+box-shadow: 3px 3px 5px 6px rgb(0, 0 , 0, 0.4);">
+    {% if user.is_authenticated %}
+    <div class="userdetails" >
+        <p>Username : {{user.username | title}}</label> 
+            <p> Firstname : {{user.first_name | title}}</p>
+            <p> Lastname: {{user.last_name | title}}</p>
+            <p> Email : {{user.email | title}}</p>
+            <p> Phone number : {{user.phonenumber | title}}</p>
+      
+    </div>
+        
+      
+    {% endif %}
+    Edit your personal information <a href="{% url 'update_user' user.pk %}">update</a>
+
+</div>
+
+{% endblock %} 

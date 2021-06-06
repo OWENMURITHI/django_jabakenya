@@ -1,0 +1,23 @@
+<!--The nav bar-->
+<nav class="navbar sticky-top navbar-expand-md navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">JabaConnect</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class=" large material-icons nav-item nav-link" href="{% url 'home' %}">home</a>
+            {% if user.is_authenticated %}
+            
+            <p class="pt-3"><a href="{%  url 'add_product' %}">Add product|</a> &nbsp;&nbsp;<a href="{% url 'profile'%}">&nbsp;&nbsp;<strong>{{ user.username }}</strong> &nbsp;</a>  <a
+                    href="{% url 'logout' %}">Log
+                    out</a>.</p>
+            {% else %}
+            <a class="nav-item nav-link" href="{% url 'login' %}">Login&nbsp;&nbsp;</a>
+            <a class="nav-item nav-link" href="{% url 'add_product' %}">Sell</a>
+            {% endif %}
+        </div>
+
+    </div>
+</nav>

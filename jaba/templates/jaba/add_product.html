@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% include "jaba/nav.html" %}
+  
+  <div class="row justify-content-center">
+   
+    <div id="addproduct"  class="col-md-6 col-sm-8 col-12">
+        <h2 class="mb-3">Add a new product</h2>
+      <form method="post" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Save</button>
+       
+      </form>
+    </div>
+  </div>
+{% endblock %}

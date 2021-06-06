@@ -1,0 +1,28 @@
+<ul class="nav nav-tabs justify-content-end">
+
+  <li class="nav-item">
+    <a class=" large material-icons nav-link" href="{% url 'home' %}">home</a>
+  </li>
+
+
+  <form style="max-width: 18rem; background:rgba(12, 238, 42, 0.808); float: right;" action="{% url 'search' %}"
+    method="GET" value="{{request.GET.q}}">
+    <div class="input-group ">
+      <input id="abc" type="text" class="form-control" name="q" value="{{request.GET.q}}" onkeyup="s()" placeholder="Search for more Jaba..."/>
+      <span class="input-group-btn">
+        <input id="abc2" class="btn btn-primary" type="submit" name="submit" value="Search" disabled />
+      </span>
+    </div>
+  </form>
+
+
+  {% if user.is_authenticated %}
+  <li class="nav-item "><a class="nav-link" href="{%  url 'add_product' %} ">Add product | &nbsp;&nbsp; </a> </li>
+  <li class="nav-item "><a class=" large material-icons nav-link" href="{% url 'profile' %}">account_circle
+      |&nbsp;&nbsp;</a></li>
+  <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout &nbsp;&nbsp;</a> </li>
+  {% else %}
+  <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}">Login &nbsp;&nbsp;</a></li>
+  <li class="nav-item "> <a class="nav-link" href="{% url 'add_product' %}">Sell &nbsp;&nbsp;</a></li>
+  {% endif %}
+</ul>
